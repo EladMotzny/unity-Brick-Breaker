@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     public bool inPlay;
     public Transform paddle;
     public float speed;
+    public Transform explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,13 @@ public class Ball : MonoBehaviour
     {
         if (collision.transform.CompareTag("brick"))
         {
+            //make explosion effect from the brick
+            Transform newExplosion = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+
+            //remove the new object from the hierarchy
+            Destroy(newExplosion.gameObject, 2.5f);
+
+            //destroy the brick
             Destroy(collision.gameObject);
         }
     }
