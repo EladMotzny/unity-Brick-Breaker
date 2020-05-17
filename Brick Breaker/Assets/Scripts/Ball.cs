@@ -64,6 +64,7 @@ public class Ball : MonoBehaviour
             
             //add to the score the bricks point value
             gm.UpdateScore(collision.gameObject.GetComponent<Bricks>().points);
+            gm.UpdateNumberOfBricks();
 
             //destroy the brick
             Destroy(collision.gameObject);
