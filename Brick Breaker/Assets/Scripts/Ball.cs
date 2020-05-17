@@ -23,6 +23,11 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gm.gameOver)
+        {
+            return; //if the game is over don't place the ball on the paddle and freeze the game
+        }
+
         if (!inPlay)
         {
             transform.position = paddle.position; // move the ball to the middle of the paddle
@@ -30,6 +35,7 @@ public class Ball : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && !inPlay) // space bar
         {
+            
             inPlay = true;
             rb.AddForce(Vector2.up * speed);
         }
