@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//will be used to border the paddle and the ball
-
 public class Boundaries : MonoBehaviour
 {
     private float minX, maxX, minY, maxY;
@@ -12,7 +10,7 @@ public class Boundaries : MonoBehaviour
     void Start()
     {
 
-        CircleCollider2D playerCollider = GetComponent<CircleCollider2D>();
+        PolygonCollider2D playerCollider = GetComponent<PolygonCollider2D>();
         playerRadius = playerCollider.bounds.extents.x;
 
         float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
