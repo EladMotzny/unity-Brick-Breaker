@@ -42,4 +42,12 @@ public class Ball : MonoBehaviour
             inPlay = false;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("brick"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
