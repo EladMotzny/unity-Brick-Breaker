@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     public Transform paddle;
     public float speed;
     public Transform explosion;
+    public GameManager gm;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,10 @@ public class Ball : MonoBehaviour
     {
         if (collision.CompareTag("bottom"))
         {
-            Debug.Log("Bootom of screen");
             rb.velocity = Vector2.zero; // zero out the forces on the ball
             inPlay = false;
+            gm.UpdateLives(-1);// lost 1 life
+
         }
     }
 
@@ -53,6 +55,9 @@ public class Ball : MonoBehaviour
 
             //remove the new object from the hierarchy
             Destroy(newExplosion.gameObject, 2.5f);
+            
+            //add to the score the bricks point value
+            gm.UpdateScore(collision.gameObject.GetComponent<Bricks>().points);
 
             //destroy the brick
             Destroy(collision.gameObject);
