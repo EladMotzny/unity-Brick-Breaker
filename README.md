@@ -13,3 +13,10 @@ The ball has a unity built in physics "Bouncy" which calculates how to bounce th
 
 - The bricks-
   - Purple brick- ![purpleBrick](https://user-images.githubusercontent.com/33619352/82357949-79afb780-9a0e-11ea-850f-98a6951218ba.JPG)
+
+
+
+## The Code:
+- The Paddle: We added to it the [moving ability](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Paddle.cs#L24-L25). And [freeze](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Paddle.cs#L19-L22) when the game is over or we proceed to the next level.
+
+- The Ball: We added the "Bouncy" built in script to make the bounce physics logical when the ball hits the wall, bricks and the paddle.
