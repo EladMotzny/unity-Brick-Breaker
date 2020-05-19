@@ -9,7 +9,8 @@ public class Ball : MonoBehaviour
     public bool inPlay;
     public Transform paddle;
     public float speed;
-    public Transform explosion;
+    public Transform purpleExplosion;
+    public Transform greenExplosion;
     public GameManager gm;
 
     // Start is called before the first frame update
@@ -54,20 +55,40 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("brick"))
+        
+        if (collision.transform.CompareTag("purpleBrick")|| collision.transform.CompareTag("greenBrick"))
         {
-            //make explosion effect from the brick
-            Transform newExplosion = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+            Bricks brick = collision.gameObject.GetComponent<Bricks>();
+            if (brick.hitsToBreak > 1)
+            {
+                brick.BreakBrick();
+            }
+            else
+            {
+                //make explosion effect from the brick
+                if (collision.transform.CompareTag("purpleBrick")) {
+                    Transform newExplosion = Instantiate(purpleExplosion, collision.transform.position, collision.transform.rotation);
 
-            //remove the new object from the hierarchy
-            Destroy(newExplosion.gameObject, 2.5f);
-            
-            //add to the score the bricks point value
-            gm.UpdateScore(collision.gameObject.GetComponent<Bricks>().points);
-            gm.UpdateNumberOfBricks();
+                    //remove the new object from the hierarchy
+                    Destroy(newExplosion.gameObject, 2.5f);
+                }
 
-            //destroy the brick
-            Destroy(collision.gameObject);
+                if (collision.transform.CompareTag("greenBrick"))
+                {
+                    Transform newExplosion = Instantiate(greenExplosion, collision.transform.position, collision.transform.rotation);
+
+                    //remove the new object from the hierarchy
+                    Destroy(newExplosion.gameObject, 2.5f);
+                }
+
+
+                //add to the score the bricks point value
+                gm.UpdateScore(brick.points);
+                gm.UpdateNumberOfBricks();
+
+                //destroy the brick
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

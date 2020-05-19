@@ -12,14 +12,17 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public bool gameOver;
     public GameObject gameOverPanel;
+    public GameObject loadLevelPanel;
     public int numberOfBricks;
+    public Transform[] levels;
+    public int currentLevelIndex;
 
     // Start is called before the first frame update
     void Start()
     {
         livesText.text = "Lives: "+ lives;
         scoreText.text = "Score: " + score;
-        numberOfBricks = GameObject.FindGameObjectsWithTag("brick").Length;
+        numberOfBricks = GameObject.FindGameObjectsWithTag("purpleBrick").Length + GameObject.FindGameObjectsWithTag("greenBrick").Length;
     }
 
     // Update is called once per frame
@@ -51,10 +54,30 @@ public class GameManager : MonoBehaviour
     public void UpdateNumberOfBricks()
     {
         numberOfBricks--;
-        if (numberOfBricks <= 0)
+        if (numberOfBricks <= 0) // check if level is complete
         {
-            GameOver();
+            if (currentLevelIndex >= levels.Length - 1)
+            {//no more levels to load
+                GameOver();
+            }
+            else
+            {
+                loadLevelPanel.SetActive(true);
+                loadLevelPanel.GetComponentInChildren<Text>().text = "Level " + (currentLevelIndex + 2);
+                gameOver = true;
+                Invoke("LoadLevel", 3f);// freeze the game for 3 seconds and the activate the next level
+            }
         }
+    }
+
+    void LoadLevel()
+    {
+        currentLevelIndex++;
+        Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
+        numberOfBricks = GameObject.FindGameObjectsWithTag("purpleBrick").Length + GameObject.FindGameObjectsWithTag("greenBrick").Length;
+        gameOver = false; //reanable the game
+        loadLevelPanel.SetActive(false);
+
     }
 
     void GameOver()
