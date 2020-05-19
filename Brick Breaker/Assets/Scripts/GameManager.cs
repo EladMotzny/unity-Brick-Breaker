@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();// Close the game or the window - will NOT work in the editor
-        Debug.Log("Game Quit");
+        SceneManager.LoadScene("StartMenu");
     }
 }
