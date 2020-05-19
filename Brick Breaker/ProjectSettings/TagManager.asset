@@ -8,6 +8,7 @@ TagManager:
   - brick
   - purpleBrick
   - greenBrick
+  - grayBrick
   layers:
   - Default
   - TransparentFX

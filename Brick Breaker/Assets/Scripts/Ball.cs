@@ -95,5 +95,8 @@ public class Ball : MonoBehaviour
             }
             audio.Play();
         }
+        if (collision.transform.CompareTag("grayBrick")){
+            audio.Play();
+        }
     }
 }
