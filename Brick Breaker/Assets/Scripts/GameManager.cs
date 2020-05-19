@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
     public GameObject gameOverPanel;
     public GameObject loadLevelPanel;
+    public GameObject gameWonPanel;
     public int numberOfBricks;
     public Transform[] levels;
     public int currentLevelIndex;
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
         {
             if (currentLevelIndex >= levels.Length - 1)
             {//no more levels to load
-                GameOver();
+                GameWon();
             }
             else
             {
@@ -98,6 +99,11 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+    }
+    void GameWon()
+    {
+        gameOver = true;
+        gameWonPanel.SetActive(true);
     }
 
     public void playAgain()
