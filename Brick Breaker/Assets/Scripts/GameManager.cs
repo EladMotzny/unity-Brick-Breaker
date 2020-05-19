@@ -80,6 +80,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+   void LoadCurrentLevel()
+    {
+        Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
+        numberOfBricks = GameObject.FindGameObjectsWithTag("purpleBrick").Length + GameObject.FindGameObjectsWithTag("greenBrick").Length;
+        gameOver = false; //reanable the game
+        gameOverPanel.SetActive(false);
+    }
     void GameOver()
     {
         gameOver = true;
@@ -88,7 +96,14 @@ public class GameManager : MonoBehaviour
 
     public void playAgain()
     {
-        SceneManager.LoadScene("Main");
+        if (currentLevelIndex == levels.Length - 1 && numberOfBricks == 0) //No more levels- start again from the first level
+        {
+            SceneManager.LoadScene("Main");
+        }
+        else
+        {
+            LoadCurrentLevel();
+        }
     }
 
     public void Quit()
