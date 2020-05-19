@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameWonPanel;
     public int numberOfBricks;
     public Transform[] levels;
-    public int currentLevelIndex;
+    private int currentLevelIndex;
 
     // Start is called before the first frame update
     void Start()

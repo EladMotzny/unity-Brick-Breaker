@@ -1354,6 +1354,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BricksLevel1
       objectReference: {fileID: 0}
+    - target: {fileID: 6290940744148145169, guid: f5ddbb74c0eacb243b077a5efd5e6c52,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3300686883540357937, guid: ad94d9dedda85be43b7617ce7995127c,
+        type: 3}
+    - target: {fileID: 6290940744148145169, guid: f5ddbb74c0eacb243b077a5efd5e6c52,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6290940744148145171, guid: f5ddbb74c0eacb243b077a5efd5e6c52,
         type: 3}
       propertyPath: m_TagString
