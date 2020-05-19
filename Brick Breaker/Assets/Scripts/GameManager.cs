@@ -48,6 +48,10 @@ public class GameManager : MonoBehaviour
     public void UpdateScore (int points)
     {
         score += points;
+        if(score< 0)
+        {
+            score = 0;
+        }
         scoreText.text = "Score: " + score;
     }
 
@@ -87,6 +91,8 @@ public class GameManager : MonoBehaviour
         numberOfBricks = GameObject.FindGameObjectsWithTag("purpleBrick").Length + GameObject.FindGameObjectsWithTag("greenBrick").Length;
         gameOver = false; //reanable the game
         gameOverPanel.SetActive(false);
+        UpdateLives(3);
+        UpdateScore(-10);
     }
     void GameOver()
     {

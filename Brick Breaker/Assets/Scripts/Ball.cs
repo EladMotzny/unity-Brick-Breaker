@@ -29,6 +29,7 @@ public class Ball : MonoBehaviour
         if (gm.gameOver)
         {
             transform.position = paddle.position;
+            inPlay = false;
             return; //if the game is over don't place the ball on the paddle and freeze the game
         }
 
