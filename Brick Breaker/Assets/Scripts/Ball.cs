@@ -12,11 +12,13 @@ public class Ball : MonoBehaviour
     public Transform purpleExplosion;
     public Transform greenExplosion;
     public GameManager gm;
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audio = GetComponent<AudioSource>();
 
        
     }
@@ -26,6 +28,7 @@ public class Ball : MonoBehaviour
     {
         if (gm.gameOver)
         {
+            transform.position = paddle.position;
             return; //if the game is over don't place the ball on the paddle and freeze the game
         }
 
@@ -89,6 +92,7 @@ public class Ball : MonoBehaviour
                 //destroy the brick
                 Destroy(collision.gameObject);
             }
+            audio.Play();
         }
     }
 }
