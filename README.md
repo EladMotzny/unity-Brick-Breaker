@@ -20,6 +20,13 @@ The ball has a unity built in physics "Bouncy" which calculates how to bounce th
   - Green brick after one hit- ![greenBroken](https://user-images.githubusercontent.com/33173449/82437159-a4961c00-9a9f-11ea-98da-1c17cebe4e39.PNG)
   - Grey brick (can't be broken)- ![grey](https://user-images.githubusercontent.com/33173449/82437194-b24ba180-9a9f-11ea-820a-f68157271117.PNG)
 
+- The levels-
+  - Level 1- A simple introduction to the game. Regular purple bricks you need to break:
+  ![level1](https://user-images.githubusercontent.com/33173449/82444227-95b56680-9aab-11ea-8b9d-7cf2746eb092.PNG)
+  - Level 2- Added the green bricks which takes two hits to break. We also added more bricks and the level layout is a bit more difficult:
+  ![level2](https://user-images.githubusercontent.com/33173449/82444393-d4e3b780-9aab-11ea-95df-b13d27b1550c.PNG)
+  - Level 3- Added grey bricks which doesnt break at all with difficult brick placement, and also larger number of bricks to break:
+  ![level3](https://user-images.githubusercontent.com/33173449/82444480-ffce0b80-9aab-11ea-9bdf-327e7f13f50d.PNG)
 
 
 
