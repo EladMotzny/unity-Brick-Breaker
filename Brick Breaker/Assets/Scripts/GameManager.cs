@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,12 +19,23 @@ public class GameManager : MonoBehaviour
     public Transform[] levels;
     private int currentLevelIndex;
 
+    AudioSource[] objectSounds;//Gets all the Audio sources from the object
+    AudioSource gameOverSound;
+    AudioSource victorySound;
+    AudioSource gameMusic;
+
     // Start is called before the first frame update
     void Start()
     {
         livesText.text = "Lives: "+ lives;
         scoreText.text = "Score: " + score;
         numberOfBricks = GameObject.FindGameObjectsWithTag("purpleBrick").Length + GameObject.FindGameObjectsWithTag("greenBrick").Length;
+        objectSounds = GetComponents<AudioSource>();
+        gameOverSound = objectSounds[0];//First audio source
+        victorySound = objectSounds[1];//Second audio source
+        gameMusic = objectSounds[2];//Third audio source
+        gameMusic.Play();
+        
     }
 
     // Update is called once per frame
@@ -99,11 +111,15 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+        gameMusic.Stop();
+        gameOverSound.Play();
     }
     void GameWon()
     {
         gameOver = true;
         gameWonPanel.SetActive(true);
+        gameMusic.Stop();
+        victorySound.Play();
     }
 
     public void playAgain()
