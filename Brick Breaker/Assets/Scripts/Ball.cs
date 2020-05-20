@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour
         {
             transform.position = paddle.position;
             inPlay = false;
+            rb.velocity = Vector2.zero;
             return; //if the game is over don't place the ball on the paddle and freeze the game
         }
 
