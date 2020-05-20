@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         gameOverSound = objectSounds[0];//First audio source
         victorySound = objectSounds[1];//Second audio source
         gameMusic = objectSounds[2];//Third audio source
+        gameMusic.loop = true;//plays the game music in loop
         gameMusic.Play();
         
     }
@@ -104,6 +105,8 @@ public class GameManager : MonoBehaviour
         numberOfBricks = GameObject.FindGameObjectsWithTag("purpleBrick").Length + GameObject.FindGameObjectsWithTag("greenBrick").Length;
         gameOver = false; //reanable the game
         gameOverPanel.SetActive(false);
+        gameMusic.loop = true;
+        gameMusic.Play();//play game music again
         UpdateLives(3);
         UpdateScore(-10);
     }
