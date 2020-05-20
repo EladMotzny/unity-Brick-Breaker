@@ -2,6 +2,9 @@
 
 ## Introduction and Instruction:
 This game is the well known classic Brick Bracker which was developed for the Game Development course.
+You're objective is to destroy all of the bricks in all three levels to win!
+
+![Example](https://user-images.githubusercontent.com/33173449/82437632-66e5c300-9aa0-11ea-9e60-5731a4e18c2b.gif)
 
 - The paddle- ![paddle](https://user-images.githubusercontent.com/33619352/82352691-ff2f6980-9a06-11ea-949b-0be949c8dcc7.JPG)
 Can move using the left and right arrows, and can not cross the game walls. (Closed world)
@@ -13,6 +16,10 @@ The ball has a unity built in physics "Bouncy" which calculates how to bounce th
 
 - The bricks-
   - Purple brick- ![purpleBrick](https://user-images.githubusercontent.com/33619352/82357949-79afb780-9a0e-11ea-850f-98a6951218ba.JPG)
+  - Green brick- ![green](https://user-images.githubusercontent.com/33173449/82437082-7b758b80-9a9f-11ea-80fa-c0b8a00a5edb.PNG)
+  - Green brick after one hit- ![greenBroken](https://user-images.githubusercontent.com/33173449/82437159-a4961c00-9a9f-11ea-98da-1c17cebe4e39.PNG)
+  - Grey brick (can't be broken)- ![grey](https://user-images.githubusercontent.com/33173449/82437194-b24ba180-9a9f-11ea-820a-f68157271117.PNG)
+
 
 
 
