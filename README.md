@@ -19,4 +19,8 @@ The ball has a unity built in physics "Bouncy" which calculates how to bounce th
 ## The Code:
 - The Paddle: We added to it the [moving ability](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Paddle.cs#L24-L25). And [freeze](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Paddle.cs#L19-L22) when the game is over or we proceed to the next level.
 
-- The Ball: We added the "Bouncy" built in script to make the bounce physics logical when the ball hits the wall, bricks and the paddle.
+- The Ball: 
+  - We added the "Bouncy" built in script to make the bounce physics logical when the ball hits the wall, bricks and the paddle.
+  - When the ball falls to the bottom of the screen we [restart](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Ball.cs#L49-L58) it by putting it on the paddle and taking a life.
+    -When the ball hits any brick it makes a jumping sound. And if the brick breaks then it triggers the explosion prefab we created using the "Particle Effect" in Unity and adjusted it to our game. And to deny the over creation of explosion prefabs during the game we [destroy](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Ball.cs#L77) the object after a few seconds. Moreover we [update](https://github.com/EladMotzny/unity-homework-8/blob/b01c0ece711d050e7e927ca2bf93a37b6a34ba1e/Brick%20Breaker/Assets/Scripts/Ball.cs#L90) the score for every brick hit (except for the gray brick)
+
